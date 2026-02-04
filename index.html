@@ -1,0 +1,136 @@
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ShoppingBag, Leaf, Store, Clock, MapPin, User } from "lucide-react";
+
+export default function FoodRescueApp() {
+  return (
+    <div className="min-h-screen bg-white text-gray-800">
+      {/* Navbar */}
+      <nav className="flex items-center justify-between px-8 py-4 shadow-sm sticky top-0 bg-white z-50">
+        <h1 className="text-xl font-bold text-green-700">FoodRescue</h1>
+        <div className="flex gap-6 items-center">
+          <a className="hover:text-green-600 cursor-pointer">Beranda</a>
+          <a className="hover:text-green-600 cursor-pointer">Marketplace</a>
+          <a className="hover:text-green-600 cursor-pointer">Cara Kerja</a>
+          <Button size="sm" className="rounded-xl">Masuk</Button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="relative h-[80vh] flex items-center justify-center text-center">
+        <img
+          src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092"
+          alt="Food rescue hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 px-6 max-w-3xl text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Selamatkan Makanan, Hemat Biaya
+          </h1>
+          <p className="text-lg md:text-xl mb-8">
+            Platform profesional untuk membeli makanan & sayur berlebih dari restoran,
+            hotel, dan toko dengan harga lebih murah.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button className="rounded-2xl px-8 py-4">Lihat Marketplace</Button>
+            <Button variant="outline" className="rounded-2xl px-8 py-4 text-white border-white">
+              Jadi Mitra
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Cara Kerja */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Cara Kerja</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <MapPin className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Cari Terdekat</h3>
+              <p>Pilih makanan surplus dari mitra di sekitarmu.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <ShoppingBag className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Pesan & Bayar</h3>
+              <p>Lakukan pembayaran langsung di aplikasi.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <Clock className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Ambil Pesanan</h3>
+              <p>Ambil makanan sesuai waktu pickup yang ditentukan.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Marketplace */}
+      <section className="px-8 py-20 bg-green-50">
+        <h2 className="text-3xl font-bold text-center mb-12">Marketplace</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[1,2,3].map((item) => (
+            <Card key={item} className="rounded-2xl shadow-md overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe"
+                alt="Food item"
+                className="h-48 w-full object-cover"
+              />
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg mb-1">Surprise Food Box</h3>
+                <p className="text-sm text-gray-500 mb-2">Restoran Lokal</p>
+                <p className="mb-2"><span className="line-through mr-2">Rp50.000</span><span className="text-green-600 font-bold">Rp20.000</span></p>
+                <Button className="w-full rounded-xl">Pesan</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Dashboard Mitra */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">Untuk Mitra Usaha</h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <Store className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Kelola Stok</h3>
+              <p>Unggah makanan berlebih dengan cepat.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <Leaf className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Kurangi Waste</h3>
+              <p>Lihat data makanan yang berhasil diselamatkan.</p>
+            </CardContent>
+          </Card>
+          <Card className="rounded-2xl shadow-md">
+            <CardContent className="p-6 text-center">
+              <User className="mx-auto mb-4 h-10 w-10 text-green-600" />
+              <h3 className="font-semibold text-xl mb-2">Laporan Penjualan</h3>
+              <p>Pantau pendapatan dari surplus food.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-8 py-20 bg-green-600 text-white text-center">
+        <h2 className="text-3xl font-bold mb-4">Siap Bergabung?</h2>
+        <p className="mb-8 max-w-xl mx-auto">Mulai jadi bagian dari solusi pengurangan food waste hari ini.</p>
+        <Button variant="secondary" className="rounded-2xl px-10 py-4">Daftar Sekarang</Button>
+      </section>
+
+      {/* Footer */}
+      <footer className="px-8 py-6 text-center text-sm text-gray-500">
+        © 2026 FoodRescue — Save Food, Save Earth 🌍
+      </footer>
+    </div>
+  );
+}
